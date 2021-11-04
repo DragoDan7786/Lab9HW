@@ -30,5 +30,30 @@ What is the value of the first triangle number to have over one hundred divisors
     
     */
     
+    private static int NumDivisors(int num) {
+    int divNum = 0;
+    int sqrt = (int) Math.sqrt(num);
+ 
+    for(int i = 1; i<= sqrt; i++){
+        if(num % i == 0){
+            divNum = divNum + 2;
+        }
+    }
+    //Catches perfect squares
+    if (sqrt * sqrt == num) {
+        divNum--;
+    }
+    return divNum;
+}
     
+    public static void main(String[] args) {
+        int num = 0;
+        int i = 1;
+        while(NumDivisors(num) < 100){
+            num +=i;
+            i++;
+        }
+        
+        System.out.println(num);
+    }
 }
